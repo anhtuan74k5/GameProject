@@ -1,15 +1,22 @@
 #include "Game.h"
 #include "TextureManager.h"
 #include "GameObject.h"
+#include "Map.h"
 
 GameObject* player;
 GameObject* enemy;
+Map* map;
+
+
+SDL_Renderer* Game::renderer = nullptr;
 Game::Game()
 {}
 Game::~Game()
 {
 
 }
+
+
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
@@ -37,8 +44,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	}
 	else isRunning = false;
 
-	player = new GameObject("img/Idle/cuphead_idle_0001.png", renderer, 0, 0);
-	enemy = new GameObject("img/Main Objects/MainCharacter_LEFT.png", renderer, 100, 0);
+	player = new GameObject("assets/Idle/cuphead_idle_0001.png", 0, 0);
+	enemy = new GameObject("assets/Main Objects/MainCharacter_LEFT.png", 100, 0);
+	map = new Map();
 }
 
 void Game::handleEvents() {
@@ -57,11 +65,13 @@ void Game::update()
 {
 	player->Update();
 	enemy->Update();
+
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
+	map->DrawMap();
 	player->Render();
 	enemy->Render();
 	SDL_RenderPresent(renderer);
