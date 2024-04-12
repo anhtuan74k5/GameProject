@@ -1,20 +1,23 @@
 #include "Game.h"
 #include "TextureManager.h"
-#include "GameObject.h"
 #include "Map.h"
+#include "Components.h"
+#include "Vector2D.h"
 
-GameObject* player;
-GameObject* enemy;
-Map* map;
 
+Map* map;		
+
+SDL_Event Game::event;
 
 SDL_Renderer* Game::renderer = nullptr;
+
+Manager manager;
+auto& player(manager.addEntity());
+
 Game::Game()
 {}
 Game::~Game()
-{
-
-}
+{}
 
 
 
@@ -34,9 +37,11 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		{
 			std::cout << "Window created!" << std::endl;
 		}
-		renderer = SDL_CreateRenderer(window, -1, 0);
+		 renderer = SDL_CreateRenderer(window, -1, 0);
 		if (renderer)
 		{
+			SDL_Texture* texture = IMG_LoadTexture(renderer, "assets/plx-1.png");
+			SDL_RenderPresent(renderer);
 			SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 			std::cout << "Renderer created!" << std::endl;
 		}
@@ -44,13 +49,14 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	}
 	else isRunning = false;
 
-	player = new GameObject("assets/Idle/cuphead_idle_0001.png", 0, 0);
-	enemy = new GameObject("assets/Main Objects/MainCharacter_LEFT.png", 100, 0);
 	map = new Map();
+	player.addComponent<TransformComponent>(); //starting position
+	player.addComponent<SpriteComponent>("assets/Idle/cuphead_idle_0001.png");
+	player.addComponent<KeyboardController>();
 }
 
 void Game::handleEvents() {
-	SDL_Event event;
+
 	SDL_PollEvent(&event);
 	switch (event.type) {
 	case SDL_QUIT:
@@ -63,17 +69,18 @@ void Game::handleEvents() {
 
 void Game::update()
 {
-	player->Update();
-	enemy->Update();
-
+	manager.refresh();
+	manager.update();
+	player.getComponent<SpriteComponent>().setTex("assets/Idle/cuphead_idle_0001.png");
+	//player.getComponent<TransformComponent>().position.Add(Vector2D(1, 0));
+	
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
 	map->DrawMap();
-	player->Render();
-	enemy->Render();
+	manager.draw();
 	SDL_RenderPresent(renderer);
 }
 
