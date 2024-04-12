@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "ECS.h"
 #include "Components.h"
-
+#include "SpriteComponent.h"
 class KeyboardController : public Component
 {
 public:
@@ -17,19 +17,19 @@ public:
 	{
 		if (Game::event.type == SDL_KEYDOWN)	//if a key is pressed
 		{
-			switch (Game::event.key.keysym.sym)
+			switch (Game::event.key.keysym.sym) 
 			{
 			case SDLK_w:
-				transform->velocity.y = -1;
+				transform->velocity.y = -2;
 				break;
 			case SDLK_a:
-				transform->velocity.x = -1;
+				transform->velocity.x = -2;
 				break;
 			case SDLK_d:
-				transform->velocity.x = 1;
+				transform->velocity.x = 2;
 				break;
 			case SDLK_s:
-				transform->velocity.y = 1;
+				transform->velocity.y = 2;
 				break;
 			default:
 				break;

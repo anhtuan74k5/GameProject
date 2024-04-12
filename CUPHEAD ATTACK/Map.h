@@ -12,7 +12,6 @@ public:
 	void LoadMap(int arr[20][25]);
 	void DrawMap();
 
-
 private:
 	SDL_Rect src, dest;
 	SDL_Texture* dirt;

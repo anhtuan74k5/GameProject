@@ -2,23 +2,47 @@
 
 #include "SDL.h"
 #include "Components.h"
+#include "TextureManager.h"
+
 
 class SpriteComponent : public Component
 {
 private:
-	TransformComponent* transform;
-	SDL_Texture* texture;
-	SDL_Rect srcRect = {}; // Initialize srcRect with empty braces
-	SDL_Rect destRect = {}; // Initialize destRect with empty braces
+	TransformComponent* transform = nullptr;
+	SDL_Texture* texture = nullptr;
+	SDL_Rect srcRect = {};
+	SDL_Rect destRect = {};
+	
+	bool animated = false;
+	int frames = 0;
+	int speed = 100;
+	int h, w;
+	int xyRect;
+
 public:
+
+	
+
 	SpriteComponent() = default;
-	SpriteComponent(const char* path) : srcRect{}, destRect{} // Initialize srcRect and destRect with empty braces
+
+	SpriteComponent(const char* path, int nFrames, int mSpeed, int height, int width, int RectPos)
 	{
+		animated = true;
+		frames = nFrames;
+		speed = mSpeed;
 		setTex(path);
-		texture = nullptr; // Initialize position with nullptr
+		h = height;
+		w = width;
+		xyRect = RectPos;
 	}
 
-	void setTex (const char* path)
+	
+	~SpriteComponent()  
+	{
+		SDL_DestroyTexture(texture);
+	}
+
+	void setTex(const char* path)
 	{
 		texture = TextureManager::LoadTexture(path);
 	}
@@ -27,14 +51,19 @@ public:
 	{
 		transform = &entity->getComponent<TransformComponent>();
 		srcRect.x = srcRect.y = 0;
-		srcRect.w = srcRect.h = 150;
-		destRect.w = destRect.h = 75;
+		srcRect.w = w;
+		srcRect.h = h;
+		destRect.w = destRect.h = xyRect;
 	}
-
+	
 	void update() override
 	{
-		destRect.x = (int) transform->position.x;
-		destRect.y = (int) transform->position.y;
+		if (animated)
+		{
+			srcRect.x = srcRect.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
+		}
+		destRect.x = static_cast<int>(transform->position.x);
+		destRect.y = static_cast<int>(transform->position.y);
 	}
 
 	void draw() override
@@ -42,4 +71,3 @@ public:
 		TextureManager::Draw(texture, srcRect, destRect);
 	}
 };
-

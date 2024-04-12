@@ -51,14 +51,20 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	map = new Map();
 	player.addComponent<TransformComponent>(); //starting position
-	player.addComponent<SpriteComponent>("assets/Idle/cuphead_idle_0001.png");
+	//player.addComponent<SpriteComponent>("assets/Idle/Idle_Sprite.png", 4 , 100, 155, 98, 75);
+	//player.addComponent<SpriteComponent>("assets/RunLeft_Sprite.png", 4, 100, 155, 135, 75);
+	//player.addComponent<SpriteComponent>("assets/RunRight_Sprite.png", 4, 100, 155, 135, 75);
+	player.addComponent<SpriteComponent>("assets/Jump_Sprite.png", 4, 100, 109, 82, 50);
 	player.addComponent<KeyboardController>();
 }
+
+
 
 void Game::handleEvents() {
 
 	SDL_PollEvent(&event);
 	switch (event.type) {
+
 	case SDL_QUIT:
 		isRunning = false;
 		break;
@@ -71,7 +77,6 @@ void Game::update()
 {
 	manager.refresh();
 	manager.update();
-	player.getComponent<SpriteComponent>().setTex("assets/Idle/cuphead_idle_0001.png");
 	//player.getComponent<TransformComponent>().position.Add(Vector2D(1, 0));
 	
 }
