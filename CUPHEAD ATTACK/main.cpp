@@ -1,6 +1,8 @@
 #include "Game.h"
-#include "defs.h"
-
+//#include "defs.h"
+const int SCREEN_WIDTH = 1000;
+const int SCREEN_HEIGHT = 600;
+#define WINDOW_TITLE "CUPHEAD ATTACK!"
 Game* game = nullptr;
 
 int main(int argc, char* argv[])

@@ -1,2 +1,17 @@
 ﻿  Game.cpp
+D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(76,41): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(76,41): warning C4244:         with
+D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(76,41): warning C4244:         [
+D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(76,41): warning C4244:             _Ty=int
+D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(76,41): warning C4244:         ]
+  (compiling source file 'Game.cpp')
+  D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(76,41):
+  the template instantiation context (the oldest one first) is
+  	D:\Github\GameProject\CUPHEAD ATTACK\Game.cpp(47,8):
+  	see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int>(int &&,int &&)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
+  
   CUPHEAD ATTACK.vcxproj -> D:\Github\GameProject\CUPHEAD ATTACK\Debug\CUPHEAD ATTACK.exe

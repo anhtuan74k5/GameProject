@@ -12,7 +12,7 @@ private:
 	SDL_Texture* texture = nullptr;
 	SDL_Rect srcRect = {};
 	SDL_Rect destRect = {};
-	
+
 	bool animated = false;
 	int frames = 0;
 	int speed = 100;
@@ -21,7 +21,7 @@ private:
 
 public:
 
-	
+
 
 	SpriteComponent() = default;
 
@@ -36,8 +36,8 @@ public:
 		xyRect = RectPos;
 	}
 
-	
-	~SpriteComponent()  
+
+	~SpriteComponent()
 	{
 		SDL_DestroyTexture(texture);
 	}
@@ -45,6 +45,7 @@ public:
 	void setTex(const char* path)
 	{
 		texture = TextureManager::LoadTexture(path);
+
 	}
 
 	void init() override
@@ -55,7 +56,7 @@ public:
 		srcRect.h = h;
 		destRect.w = destRect.h = xyRect;
 	}
-	
+
 	void update() override
 	{
 		if (animated)
@@ -71,3 +72,5 @@ public:
 		TextureManager::Draw(texture, srcRect, destRect);
 	}
 };
+
+

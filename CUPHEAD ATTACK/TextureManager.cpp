@@ -13,3 +13,5 @@
 		SDL_RenderCopy(Game::renderer, tex, &src, &dest);
 
 	}
+
+

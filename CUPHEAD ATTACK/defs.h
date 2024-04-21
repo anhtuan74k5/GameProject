@@ -6,5 +6,4 @@ const int SCREEN_HEIGHT = 600;
 #define WINDOW_TITLE "CUPHEAD ATTACK!"
 
 
-
 #endif
