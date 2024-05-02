@@ -18,3 +18,4 @@ auto& Enemy_Plane1(manager.addEntity());
 auto& Enemy_Plane2(manager.addEntity());
 auto& Enemy_Pawn1(manager.addEntity());
 auto& Enemy_Pawn2(manager.addEntity());
+auto& Bullet(manager.addEntity());

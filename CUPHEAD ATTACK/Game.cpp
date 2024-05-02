@@ -11,7 +11,17 @@ Game::Game()
 Game::~Game()
 {}
 
+void Game::LoadBackground(const char* filepath)
+{
+	SDL_Surface* tmpSurface = IMG_Load(filepath);
+	backgroundTexture = SDL_CreateTextureFromSurface(renderer, tmpSurface);
+	SDL_FreeSurface(tmpSurface);
 
+	if (!backgroundTexture)
+	{
+		std::cout << "Failed to load background texture: " << SDL_GetError() << std::endl;
+	}
+}
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
@@ -33,7 +43,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		if (renderer)
 		{
 			//SDL_Texture* texture = IMG_LoadTexture(renderer, "assets/plx-1.png");
-			
 			//SDL_RenderPresent(renderer);
 			SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 			std::cout << "Renderer created!" << std::endl;
@@ -41,18 +50,29 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = true;
 	}
 	else isRunning = false;
-
-
+	LoadBackground("assets/background.png");
 	map = new Map();
-	player.addComponent<TransformComponent>(450, 350); //starting position
+	player.addComponent<TransformComponent>(685, 150); //starting position	450 - 350	
+	// 230 -> 330(left)			585 ->	685 (right)
 	Enemy_Plane1.addComponent<TransformComponent>(0,80);
 	Enemy_Plane2.addComponent<TransformComponent>(900,150);
-	Enemy_Plane1.addComponent<SpriteComponent>("assets/Enemy_PlaneRight.png", 4, 100, 99, 112, 75);
-	Enemy_Plane2.addComponent<SpriteComponent>("assets/Enemy_PlaneLeft.png", 4, 100, 99, 112, 75);
 	Enemy_Pawn1.addComponent<TransformComponent>(0, 350);
 	Enemy_Pawn2.addComponent<TransformComponent>(900, 350);
+	Enemy_Plane1.addComponent<SpriteComponent>("assets/Enemy_PlaneRight.png", 4, 100, 99, 112, 75);
+	Enemy_Plane2.addComponent<SpriteComponent>("assets/Enemy_PlaneLeft.png", 4, 100, 99, 112, 75);
 	Enemy_Pawn1.addComponent<SpriteComponent>("assets/Enemy_PawnRight.png", 4, 100, 102, 127, 75);
 	Enemy_Pawn2.addComponent<SpriteComponent>("assets/Enemy_PawnLeft.png", 4, 100, 102, 127, 75);
+
+
+
+
+	// xu li vien 
+		Bullet.addComponent<TransformComponent>(0, 350);
+		Bullet.addComponent<SpriteComponent>("assets/bullet.png", 4, 100, 155, 98, 75);
+		Bullet.getComponent<TransformComponent>().velocity.x = 3;
+
+	
+
 
 	// move Enemy_plane1 to the right
 	Enemy_Plane1.getComponent<TransformComponent>().velocity.x = 1;
@@ -64,14 +84,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	Enemy_Pawn2.getComponent<TransformComponent>().velocity.x = -1;
 
 	player.addComponent<SpriteComponent>("assets/Idle_Sprite.png", 4 , 100, 155, 98, 75);
-	//player.addComponent<SpriteComponent>("assets/RunLeft_Sprite.png", 4, 100, 155, 135, 75);
-	//player.addComponent<SpriteComponent>("assets/RunRight_Sprite.png", 4, 100, 155, 135, 75);
-	//player.addComponent<SpriteComponent>("assets/Jump_Sprite.png", 4, 100, 109, 82, 50);
-
-	
 	player.addComponent<KeyboardController>();
-}
 
+}
 
 
 
@@ -90,21 +105,77 @@ void Game::handleEvents() {
 	}
 }
 
+
+// check collision giua 2 object
+bool Game::checkCollision(const SDL_Rect& rectA, const SDL_Rect& rectB)
+{
+	if (rectA.x < rectB.x + rectB.w &&
+		rectA.x + rectA.w > rectB.x &&
+		rectA.y < rectB.y + rectB.h &&
+		rectA.y + rectA.h > rectB.y) {
+		return true; // Có va ch?m
+	}
+	return false; // Không có va ch?m
+}
+
+void Game::Collision()
+{
+
+}
+
+
 void Game::update()
 {
 	manager.refresh();
 	manager.update();
-	//player.getComponent<TransformComponent>().position.Add(Vector2D(1, 0));
+	Collision();
+
+
+
+	// Check two objects collision
+
+	SDL_Rect playerRect = player.getComponent<SpriteComponent>().destRect;
+	SDL_Rect enemyRect1 = Enemy_Pawn1.getComponent<SpriteComponent>().destRect;
+	SDL_Rect enemyRect2 = Enemy_Pawn2.getComponent<SpriteComponent>().destRect;
+	SDL_Rect enemyRect3 = Enemy_Plane1.getComponent<SpriteComponent>().destRect;
+	SDL_Rect enemyRect4 = Enemy_Plane2.getComponent<SpriteComponent>().destRect;
+	SDL_Rect bulletshoot = Bullet.getComponent<SpriteComponent>().destRect;
+
+
+	if (checkCollision(playerRect, enemyRect1)) 
+		std::cout << "Touching Pawn 1" << std::endl;
+	if (checkCollision(playerRect, enemyRect2))
+		std::cout << "Touching Pawn 2" << std::endl;
+	if (checkCollision(playerRect, enemyRect3))
+		std::cout << "Touching Plane 1" << std::endl;
+	if (checkCollision(playerRect, enemyRect4))
+		std::cout << "Touching Plane 2" << std::endl;
+	if (checkCollision(playerRect, bulletshoot))
+		std::cout << "You died!!!!" << std::endl;
+
+
+
 	
 }
 
 
+
 void Game::render()
 {
-	SDL_RenderClear(renderer);
-	map->DrawMap();
-	manager.draw();
-	SDL_RenderPresent(renderer);
+SDL_RenderClear(renderer);
+    
+    // V? background
+    SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);
+
+    // V? b?n ??
+    map->DrawMap();
+
+    // V? sprite và các thành ph?n khác
+    manager.draw();
+
+    // C?p nh?t màn hình
+    SDL_RenderPresent(renderer);
+
 }
 
 void Game::clean()

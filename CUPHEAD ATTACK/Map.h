@@ -11,6 +11,7 @@ public:
 	
 	void LoadMap(int arr[19][32]);
 	void DrawMap();
+	int map[19][32];
 
 private:
 	SDL_Rect src, dest;
@@ -18,7 +19,6 @@ private:
 	SDL_Texture* grass;
 	SDL_Texture* water;
 
-	int map[19][32];
 };
 
 

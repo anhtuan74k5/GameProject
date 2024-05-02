@@ -10,8 +10,7 @@ class SpriteComponent : public Component
 private:
 	TransformComponent* transform = nullptr;
 	SDL_Texture* texture = nullptr;
-	SDL_Rect srcRect = {};
-	SDL_Rect destRect = {};
+
 
 	bool animated = false;
 	int frames = 0;
@@ -22,7 +21,8 @@ private:
 public:
 
 
-
+	SDL_Rect srcRect = {};
+	SDL_Rect destRect = {};
 	SpriteComponent() = default;
 
 	SpriteComponent(const char* path, int nFrames, int mSpeed, int height, int width, int RectPos)

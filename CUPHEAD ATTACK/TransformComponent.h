@@ -9,6 +9,11 @@ public:
     Vector2D position; // Declare the position variable of type Vector2D
     Vector2D velocity;
 
+    int width;
+    int height;
+    int screenWidth;
+    int screenHeight;
+
     int speed = 3;
 
     TransformComponent()
@@ -33,4 +38,13 @@ public:
         position.x += velocity.x * speed;
         position.y += velocity.y * speed;
     }
+
+    bool isOffScreen() const
+    {
+
+    return (position.x < -(this -> width) || position.y < -(this -> height) || position.x > this -> screenWidth || position.y > this -> screenHeight);
+
+
+    }
+
 };

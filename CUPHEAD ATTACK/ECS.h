@@ -71,6 +71,7 @@ public:
      
 
     template <typename T, typename... TArgs>
+
     T& addComponent(TArgs&&... mArgs) 
     {
         T* c = new T(std::forward<TArgs>(mArgs)...);
@@ -89,6 +90,7 @@ public:
         return *static_cast<T*> (ptr);
     }
 };
+
 
 class Manager
 {
