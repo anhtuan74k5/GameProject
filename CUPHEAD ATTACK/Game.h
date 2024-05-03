@@ -23,6 +23,8 @@ private:
 	bool isRunning;
 	SDL_Window* window;
 	SDL_Texture* backgroundTexture;
+	Uint32 lastUpdateTime;
+
 
 };
 
