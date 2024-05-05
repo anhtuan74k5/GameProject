@@ -18,7 +18,7 @@ public:
             {
                 Entity& bullet = Game::manager.addEntity();
                 bullet.addComponent<TransformComponent>(/* X và Y t??ng ?ng v?i v? trí ban ??u c?a ??n */);
-                bullet.addComponent<SpriteComponent>("assets/bullet.png", 1, /* Chi?u r?ng và chi?u cao c?a ??n */);
+                bullet.addComponent<SpriteComponent>("assets/bulletUP.png", 1, /* Chi?u r?ng và chi?u cao c?a ??n */);
                 bullet.getComponent<TransformComponent>().velocity.x = /* T?c ?? di chuy?n c?a ??n theo tr?c X */;
                 bullet.getComponent<TransformComponent>().velocity.y = /* T?c ?? di chuy?n c?a ??n theo tr?c Y */;
                 break;

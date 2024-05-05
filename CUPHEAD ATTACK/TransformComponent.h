@@ -13,8 +13,8 @@ public:
     int height;
     int screenWidth;
     int screenHeight;
-
     int speed = 3;
+    Uint32 lastBulletTime = 0;
 
     TransformComponent()
     {

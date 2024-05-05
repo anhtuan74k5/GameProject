@@ -5,7 +5,9 @@
 #include <SDL_image.h>
 class Game {
 public:
-
+	const int SCREEN_WIDTH = 1000;
+	const int SCREEN_HEIGHT = 600;
+	int bulletFlag;
 	Game();
 	~Game();
 	void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
@@ -16,6 +18,9 @@ public:
 	bool checkCollision(const SDL_Rect& rectA, const SDL_Rect& rectB);
 	void Collision();
 	void LoadBackground(const char* filepath);
+	void spawnBullet();
+	void spawnEnemyBullets();
+	void spawnEnemies();
 	bool running() { return isRunning; };
 	static SDL_Renderer* renderer;
 	static SDL_Event event;
