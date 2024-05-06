@@ -45,6 +45,10 @@ public:
 	void setTex(const char* path)
 	{
 		texture = TextureManager::LoadTexture(path);
+		if (!texture)
+		{
+			std::cerr << "Failed to load texture: " << SDL_GetError() << std::endl;
+		}
 
 	}
 

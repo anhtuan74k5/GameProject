@@ -2,10 +2,8 @@
 D:\Github\GameProject\CUPHEAD ATTACK\KeyboardController.h(29,19): warning C4305: '=': truncation from 'double' to 'float'
   (compiling source file 'Game.cpp')
   
-D:\Github\GameProject\CUPHEAD ATTACK\Game.cpp(28,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Github\GameProject\CUPHEAD ATTACK\Game.cpp(46,19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Github\GameProject\CUPHEAD ATTACK\Game.cpp(201,64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Github\GameProject\CUPHEAD ATTACK\Game.cpp(207,58): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Github\GameProject\CUPHEAD ATTACK\Game.cpp(158,64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Github\GameProject\CUPHEAD ATTACK\Game.cpp(164,64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(77,41): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
 D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(77,41): warning C4244:         with
 D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(77,41): warning C4244:         [
@@ -14,7 +12,7 @@ D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(77,41): warning C4244:         ]
   (compiling source file 'Game.cpp')
   D:\Github\GameProject\CUPHEAD ATTACK\ECS.h(77,41):
   the template instantiation context (the oldest one first) is
-  	D:\Github\GameProject\CUPHEAD ATTACK\Game.cpp(51,25):
+  	D:\Github\GameProject\CUPHEAD ATTACK\Game.cpp(26,11):
   	see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int>(int &&,int &&)' being compiled
           with
           [

@@ -113,6 +113,7 @@ public:
             }),
             std::end(entities));
     }
+
     Entity& addEntity()
     {
         Entity* e = new Entity();
@@ -121,5 +122,12 @@ public:
         return *e;
     }
 
-
+    void removeEntity(Entity& entity)
+    {
+        entities.erase(std::remove_if(std::begin(entities), std::end(entities), [&](const std::unique_ptr<Entity>& mEntity)
+            {
+                return mEntity.get() == &entity;
+            }),
+            std::end(entities));
+    }
 };

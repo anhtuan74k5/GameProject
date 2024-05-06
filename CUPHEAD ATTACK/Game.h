@@ -8,6 +8,7 @@ public:
 	const int SCREEN_WIDTH = 1000;
 	const int SCREEN_HEIGHT = 600;
 	int bulletFlag;
+	int numberHeart = 3;
 	Game();
 	~Game();
 	void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
