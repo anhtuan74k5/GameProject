@@ -1,12 +1,12 @@
 #pragma once
-//#include "Components.h"
+
 #include "ECS.h"
-#include "Vector2D.h" // Include the header file for Vector2D
+#include "Vector2D.h" 
 
 class TransformComponent : public Component
 {
 public:
-    Vector2D position; // Declare the position variable of type Vector2D
+    Vector2D position; 
     Vector2D velocity;
 
     int width;
@@ -38,7 +38,7 @@ public:
         position.x += velocity.x * speed;
         position.y += velocity.y * speed;
     }
-
+   
     bool isOffScreen() const
     {
 

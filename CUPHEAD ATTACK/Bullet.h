@@ -37,16 +37,14 @@ public:
     {
         transform = &entity->getComponent<TransformComponent>();
         srcRect.x = srcRect.y = 0;
-        srcRect.w = destRect.w = 16; // Kích th??c c?a ??n
+        srcRect.w = destRect.w = 16; 
         srcRect.h = destRect.h = 16;
     }
 
     void update() override
     {
-        // Di chuy?n ??n theo h??ng ?i c?a player (theo tr?c y)
         transform->position.y -= speed;
 
-        // C?p nh?t v? trí c?a ??n
         destRect.x = static_cast<int>(transform->position.x);
         destRect.y = static_cast<int>(transform->position.y);
     }
