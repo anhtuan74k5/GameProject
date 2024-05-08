@@ -3,7 +3,7 @@
 #include "ECS.h"
 #include "Components.h"
 #include "SpriteComponent.h"
-#include "Header.h"
+#include "Entity.h"
 #include <SDL_mixer.h> 
 class KeyboardController : public Component {
 private:
@@ -16,7 +16,7 @@ public:
     void setGame(Game* gamePtr) {
         game = gamePtr;
 	}
-
+    
 
     int getDirection() const {
 		return direction;

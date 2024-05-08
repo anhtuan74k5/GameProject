@@ -18,6 +18,7 @@ inline ComponentID getComponentTypeID() noexcept
     return lastID++;
 }
 
+
 template <typename T> inline ComponentID getComponentTypeID() noexcept
 {
     static_assert(std::is_base_of<Component, T>::value, "");
@@ -63,6 +64,7 @@ public:
 
     void destroy() { active = false; }
 
+
     template <typename T> bool hasComponent() const
     {
         return componentBitSet[getComponentTypeID<T>()];
@@ -71,6 +73,7 @@ public:
      
 
     template <typename T, typename... TArgs>
+
 
     T& addComponent(TArgs&&... mArgs) 
     {
@@ -84,12 +87,14 @@ public:
     }
 
 
+
     template <typename T> T& getComponent() const
     {
         auto ptr(componentArray[getComponentTypeID<T>()]);
         return *static_cast<T*> (ptr);
     }
 };
+
 
 
 class Manager

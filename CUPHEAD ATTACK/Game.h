@@ -7,6 +7,7 @@ class Game {
 public:
 	const int SCREEN_WIDTH = 1000;
 	const int SCREEN_HEIGHT = 600;
+
 	int bulletFlag;
 	int numberHeart = 3;
 	Game();
@@ -16,16 +17,19 @@ public:
 	void update();
 	void render();
 	void clean();
+	bool running() { return isRunning; };
+
+
 	bool checkCollision(const SDL_Rect& rectA, const SDL_Rect& rectB);
-	void Collision();
 	void LoadBackground(const char* filepath);
 	void spawnBullet();
 	void spawnEnemyBullets();
 	void spawnEntities();
 	void prepareGame();
-	bool running() { return isRunning; };
+
 	static SDL_Renderer* renderer;
 	static SDL_Event event;
+
 	void saveHighestScoreToFile(const std::string& filename);
 	SDL_Rect playerRect;
 	SDL_Rect enemyRect1;
@@ -35,6 +39,7 @@ public:
 	SDL_Rect bulletRect;
 	SDL_Rect EnemyBulletRect1;
 	SDL_Rect EnemyBulletRect2;
+
 private:
 	bool isRunning;
 	SDL_Window* window;

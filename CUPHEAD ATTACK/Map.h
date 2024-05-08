@@ -17,7 +17,7 @@ private:
 	SDL_Rect src, dest;
 	SDL_Texture* dirt;
 	SDL_Texture* grass;
-	SDL_Texture* water;
+	SDL_Texture* empty;
 
 };
 

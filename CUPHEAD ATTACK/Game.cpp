@@ -2,7 +2,7 @@
 #include "TextureManager.h"
 #include "Map.h"
 #include "Components.h"
-#include "Header.h"
+#include "Entity.h"
 #include <SDL_mixer.h>
 #include "KeyboardController.h"
 #include <cstdlib>
@@ -102,8 +102,6 @@ void Game::LoadBackground(const char* filepath)
         std::cout << "Failed to load background texture: " << SDL_GetError() << std::endl;
     }
 }
-
-
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
@@ -231,8 +229,6 @@ void Game::spawnBullet()
     }
 }
 
-
-
 void Game::handleEvents()
 {
     SDL_PollEvent(&event);
@@ -275,11 +271,6 @@ bool Game::checkCollision(const SDL_Rect& rectA, const SDL_Rect& rectB)
         rectA.x + rectA.w > rectB.x &&
         rectA.y < rectB.y + rectB.h &&
         rectA.y + rectA.h > rectB.y;
-}
-
-void Game::Collision()
-{
-    // Handle collision
 }
 
 void Game::update()

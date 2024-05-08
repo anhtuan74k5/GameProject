@@ -138,12 +138,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Additional.h" />
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="BulletController.h" />
     <ClInclude Include="Components.h" />
     <ClInclude Include="ECS.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Header.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="TransformComponent.h" />

@@ -6,9 +6,11 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <string>
+#include "Game.h"
 
 class Additional {
 public:
+
     static bool isGamePaused;
 
     static void pauseGame(SDL_Event& event) {
@@ -39,7 +41,6 @@ public:
             pauseRect.h = 600;
 
             SDL_RenderCopy(renderer, pauseTexture, NULL, &pauseRect);
-
             SDL_DestroyTexture(pauseTexture);
             SDL_FreeSurface(pauseSurface);
         }
@@ -68,7 +69,6 @@ public:
         startRect.h = startSurface->h;
 
         SDL_RenderCopy(renderer, startTexture, NULL, &startRect);
-
         SDL_DestroyTexture(startTexture);
         SDL_FreeSurface(startSurface);
     }
@@ -117,20 +117,18 @@ public:
             return;
         }
 
-        SDL_Color textColor = { 255, 255, 255 }; 
+        SDL_Color textColor = { 255, 255, 255 };
 
-        std::string scoreText = (score == 0) ? "0" : std::to_string(score);
+        std::string scoreText =  std::to_string(score);
 
         SDL_Surface* scoreSurface = TTF_RenderText_Solid(font, (str + ": " + scoreText).c_str(), textColor);
-       
+
 
         if (!scoreSurface) {
             std::cerr << "Failed to create score surface: " << TTF_GetError() << std::endl;
             TTF_CloseFont(font);
             return;
         }
-
-
 
         SDL_Texture* scoreTexture = SDL_CreateTextureFromSurface(renderer, scoreSurface);
         if (!scoreTexture) {
@@ -139,8 +137,6 @@ public:
             TTF_CloseFont(font);
             return;
         }
-
-
 
         SDL_Rect scoreRect; 
         scoreRect.x = xpos; 
@@ -154,12 +150,11 @@ public:
         SDL_DestroyTexture(scoreTexture);
         SDL_FreeSurface(scoreSurface);
         TTF_CloseFont(font);
+
     }
 
-
-
 };
-
 bool Additional::isGamePaused = false;
+
 
 #endif // ADDITIONAL_H

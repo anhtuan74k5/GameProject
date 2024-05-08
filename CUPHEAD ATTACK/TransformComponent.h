@@ -39,12 +39,5 @@ public:
         position.y += velocity.y * speed;
     }
    
-    bool isOffScreen() const
-    {
-
-    return (position.x < -(this -> width) || position.y < -(this -> height) || position.x > this -> screenWidth || position.y > this -> screenHeight);
-
-
-    }
 
 };

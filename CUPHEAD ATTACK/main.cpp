@@ -1,5 +1,4 @@
 #include "Game.h"
-//#include "defs.h"
 
 #define WINDOW_TITLE "CUPHEAD ATTACK!"
 Game* game = nullptr;

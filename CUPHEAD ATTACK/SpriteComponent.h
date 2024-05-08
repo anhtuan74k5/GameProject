@@ -42,6 +42,7 @@ public:
 		SDL_DestroyTexture(texture);
 	}
 
+
 	void setTex(const char* path)
 	{
 		texture = TextureManager::LoadTexture(path);
