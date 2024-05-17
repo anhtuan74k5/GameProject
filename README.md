@@ -34,27 +34,25 @@ Bài tập online và bài tập lớn của môn lập trình nâng cao.
 
 - Giới hạn FPS để tránh tình trạng game chạy quá nhanh ở những máy có cấu hình cao.
 
-6. Nguồn học:
+6. Nguồn học: https://www.youtube.com/playlist?list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx :
 
-- https://www.youtube.com/playlist?list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx :
+- Game Loop: https://www.youtube.com/watch?v=44tO977slsU&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=3
 
-+ Game Loop
+- Draw Textures, Sprites: https://www.youtube.com/watch?v=YrWQsuDT3NE&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=4
 
-+ Draw Textures, Sprites.
+- Limit Frame Rate: https://www.youtube.com/watch?v=jzasDqPmtPI&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=5
 
-+ Limit Frame Rate
+- TileMap: https://www.youtube.com/watch?v=1eaxE_waDNc&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=8
 
-+ TileMap
+- Entity-Component-System (ECS): https://www.youtube.com/watch?v=XsvI8Sng6dk&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=9
 
-+ Entity Component System (ECS).
+- Vector2D: https://www.youtube.com/watch?v=ESNN57ofa3w&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=11
 
-+ Vector2D
+- Input Handling: https://www.youtube.com/watch?v=ugGDyQbWSkU&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=12
 
-+ Input Handling
+- Collision Detection: https://www.youtube.com/watch?v=rjirHFVQAkY&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=13
 
-+ Collision Detection
-
-+ Animation
+- Animation: https://www.youtube.com/watch?v=xhof7x7FOq0&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=19
 
 
 ![start](https://github.com/anhtuan74k5/GameProject/assets/159017081/8fe6ef86-9a07-4184-9a30-45d070c5bcc2)
