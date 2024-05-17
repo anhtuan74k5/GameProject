@@ -1,4 +1,4 @@
-# LTNC
+![start](https://github.com/anhtuan74k5/GameProject/assets/159017081/cbfa25ea-99de-4882-b7de-09d2133b608c)# LTNC
 Bài tập online và bài tập lớn của môn lập trình nâng cao.
 
 1. Thông tin sinh viên: Nguyễn Lê Anh Tuấn.
@@ -10,14 +10,13 @@ Bài tập online và bài tập lớn của môn lập trình nâng cao.
 3. Ngưỡng điểm mong muốn: 8.5+
 
 
-4.Giới thiệu:
+4. Giới thiệu:
 
 - "Cuphead Attack" là một tựa game được lấy ý tưởng từ một video game 2D nổi tiếng "Cuphead: Don't deal with the Devil", ra mắt vào năm 2017.
 
 - Thể loại: Adventure, RPG.
 
 - Lối chơi: Điều khiển nhân vật chính "Cuphead" để đánh bại các quái vật nguy hiểm, giành lấy những điểm số cao nhất!
-
 
 
 5. Các tính năng:
@@ -34,6 +33,27 @@ Bài tập online và bài tập lớn của môn lập trình nâng cao.
 
 - Giới hạn FPS để tránh tình trạng game chạy quá nhanh ở những máy có cấu hình cao.
 
+6. Nguồn học:
+
+- https://www.youtube.com/playlist?list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx :
+
++ Game Loop
+
++ Draw Textures, Sprites.
+
++ Limit Frame Rate
+
++ TileMap
+
++ Entity Component System (ECS).
+
++ Vector2D
+
++ Input Handling
+
++ Collision Detection
+
++ Animation
 
 
 
