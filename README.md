@@ -1,4 +1,5 @@
-![start](https://github.com/anhtuan74k5/GameProject/assets/159017081/cbfa25ea-99de-4882-b7de-09d2133b608c)# LTNC
+# LTNC
+
 Bài tập online và bài tập lớn của môn lập trình nâng cao.
 
 1. Thông tin sinh viên: Nguyễn Lê Anh Tuấn.
@@ -54,6 +55,9 @@ Bài tập online và bài tập lớn của môn lập trình nâng cao.
 + Collision Detection
 
 + Animation
+
+
+![start](https://github.com/anhtuan74k5/GameProject/assets/159017081/8fe6ef86-9a07-4184-9a30-45d070c5bcc2)
 
 
 
